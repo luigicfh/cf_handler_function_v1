@@ -2,6 +2,7 @@ from typing import Any
 import functions_framework
 from google.cloud import firestore
 from handler_cf_v1 import services
+from handler_cf_v1 import apps
 import os
 import traceback
 import datetime
@@ -67,7 +68,7 @@ def handler(request):
     service_instance_doc = get_document(
         db,
         collection,
-        request_json[os.environ.get(collection)]['id']
+        request_json[collection]['id']
     )
 
     if not service_instance_doc:
@@ -83,7 +84,9 @@ def handler(request):
 
     service = getattr(services, service_instance_doc['className'])
 
-    instance = service(service_instance_doc, request_json)
+    app = getattr(apps, service_instance_doc['appClassName'])
+
+    instance = service(service_instance_doc, request_json, app)
 
     try:
         instance.execute_service()
@@ -96,6 +99,6 @@ def handler(request):
             recipients
         )
     else:
-        instance.handle_success(db, collection)
+        instance.handle_success(db, job_collection)
 
     return "OK"
