@@ -82,6 +82,11 @@ def handler(request):
             request_json
         )
 
+    db_data = {
+        "db": db,
+        "collection": job_collection
+    }
+
     service = getattr(services, service_instance_doc['className'])
 
     app = getattr(apps, service_instance_doc['appClassName'])
@@ -91,14 +96,9 @@ def handler(request):
     try:
         instance.execute_service()
     except Exception as e:
-        instance.handle_error(
-            traceback.format_exc(),
-            retry_handler,
-            error_handler,
-            task_info,
-            recipients
-        )
+        instance.handle_error(traceback.format_exc(
+        ), retry_handler, error_handler, task_info, recipients, db_data)
     else:
-        instance.handle_success(db, job_collection)
+        instance.handle_success(db_data)
 
     return "OK"
