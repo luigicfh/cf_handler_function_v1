@@ -97,7 +97,7 @@ def handler(request):
         instance.execute_service()
     except Exception as e:
         instance.handle_error(traceback.format_exc(
-        ), retry_handler, error_handler, task_info, recipients, db_data)
+        ), error_handler, retry_handler, task_info, recipients, db_data)
     else:
         instance.handle_success(db_data)
 
