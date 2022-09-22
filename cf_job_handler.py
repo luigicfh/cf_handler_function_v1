@@ -99,7 +99,7 @@ def job_create_handler(data, context):
 
 def job_update_handler(data, context):
 
-    if data['value']['fields']['state']['stringValue'] == JOB_STATES[1] or data['value']['fields']['state']['stringValue'] == JOB_STATES[2] or data['value']['fields']['state']['stringValue'] == JOB_STATES[3]:
+    if data['value']['fields']['state']['stringValue'] != JOB_STATES[0]:
         return "OK"
 
     path_parts = context.resource.split('/')
