@@ -1,5 +1,6 @@
 attrs==22.1.0
 autopep8==1.7.0
+beautifulsoup4==4.11.1
 cached-property==1.5.2
 cachetools==5.2.0
 certifi==2022.9.14
@@ -24,7 +25,7 @@ grpc-google-iam-v1==0.12.4
 grpcio==1.49.0
 grpcio-status==1.49.0
 gunicorn==20.1.0
-handler-cf-v1==1.0.36
+handler-cf-v1==1.0.38
 idna==3.4
 importlib-metadata==4.12.0
 isodate==0.6.1
@@ -50,6 +51,7 @@ requests-file==1.5.1
 requests-toolbelt==0.9.1
 rsa==4.9
 six==1.16.0
+soupsieve==2.3.2.post1
 toml==0.10.2
 urllib3==1.26.12
 watchdog==2.1.9
