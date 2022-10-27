@@ -25,7 +25,7 @@ grpc-google-iam-v1==0.12.4
 grpcio==1.49.0
 grpcio-status==1.49.0
 gunicorn==20.1.0
-handler-cf-v1==1.0.38
+handler-cf-v1==1.0.40
 idna==3.4
 importlib-metadata==4.12.0
 isodate==0.6.1
@@ -43,6 +43,7 @@ protobuf==4.21.6
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycodestyle==2.9.1
+PyMySQL==1.0.2
 pyparsing==3.0.9
 python-dateutil==2.8.2
 pytz==2022.2.1
@@ -52,6 +53,7 @@ requests-toolbelt==0.9.1
 rsa==4.9
 six==1.16.0
 soupsieve==2.3.2.post1
+SQLAlchemy==1.4.42
 toml==0.10.2
 urllib3==1.26.12
 watchdog==2.1.9
