@@ -52,6 +52,8 @@ def job_update_handler(data, context):
     collection = path_parts[-2]
     job_id = path_parts[-1]
     job = get_doc(db, collection, job_id)
+    if job['service_instance']['name'] == 'ANI Rotation Engine':
+        return notify_error(db, collection, job_id, job)
     job['retry_attempt'] = job['retry_attempt'] + 1
     if job['retry_attempt'] == 3:
         return notify_error(db, collection, job_id, job)
